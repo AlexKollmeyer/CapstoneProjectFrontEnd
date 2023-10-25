@@ -1,4 +1,3 @@
-import WishList from "../../../components/Wishlist/WishList";
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
@@ -6,7 +5,7 @@ import axios from "axios";
 
 const WishListPage = ({}) => {
   const [user, token] = useAuth;
-  const [WishList, setWishList] = useState;
+  const [wishList, setWishList] = useState;
 
   const fetchWishList = async () => {
     try {
@@ -29,7 +28,7 @@ const WishListPage = ({}) => {
   }, []);
   return (
     <div>
-      <WishList WishList={WishList}></WishList>
+      <WishList wishList={wishList} />
     </div>
   );
 };
