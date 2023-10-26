@@ -40,7 +40,7 @@ function App() {
           }
         />
         <Route
-          path="/purchaseArchivePage"
+          path="/purchasearchivepage"
           element={
             <PrivateRoute>
               <PurchaseArchivePage />
