@@ -3,11 +3,11 @@ const PurchaseArchive = ({ purchaseArchive = [] }) => {
   const PurchaseArchiveItems = purchaseArchive.map((purchaseArchiveitem) => (
     <PurchaseArchiveItem
       key={purchaseArchiveitem.id}
-      purchasedGameTitle={purchaseArchiveitem.PurchasedGameTitle}
+      purchasedGameTitle={purchaseArchiveitem.purchasedGameTitle}
       purchaseDate={purchaseArchiveitem.purchaseDate}
       purchaseAmount={purchaseArchiveitem.purchaseAmount}
       savings={purchaseArchiveitem.savings}
-      ogPrice={purchaseArchiveitem.OriginalPrice}
+      ogPrice={purchaseArchiveitem.originalPrice}
     />
   ));
   return <div>{PurchaseArchiveItems}</div>;

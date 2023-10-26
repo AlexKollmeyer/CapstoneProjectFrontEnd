@@ -5,13 +5,13 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const PurchaseArchivePage = ({}) => {
-  const [user, token] = useAuth;
-  const [purchaseArchive, setPurchaseArchive] = useState;
+  const [user, token] = useAuth();
+  const [purchaseArchive, setPurchaseArchive] = useState([]);
 
   const fetchPurchaseArchive = async () => {
     try {
       let response = await axios.get(
-        " http://localhost:5000/api/purchaseArchive/mypurchasearchive",
+        "https://localhost:5001/api/purchaseArchive/mypurchasearchive",
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -27,8 +27,16 @@ const PurchaseArchivePage = ({}) => {
   useEffect(() => {
     fetchPurchaseArchive();
   }, []);
+  const totalPurchaseCost = purchaseArchive.reduce(
+    (acc, purchaseArchiveitem) => acc + purchaseArchiveitem.purchaseAmount,
+    0
+  );
+
   return (
     <div>
+      <div>
+        <h2>Total amount spent on (this site) ${totalPurchaseCost}</h2>
+      </div>
       <PurchaseArchive purchaseArchive={purchaseArchive} />
     </div>
   );
