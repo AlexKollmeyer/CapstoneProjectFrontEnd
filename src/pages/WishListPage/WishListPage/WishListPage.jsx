@@ -5,13 +5,13 @@ import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 
 const WishListPage = ({}) => {
-  const [user, token] = useAuth;
-  const [wishList, setWishList] = useState;
+  const [user, token] = useAuth();
+  const [wishList, setWishList] = useState([]);
 
   const fetchWishList = async () => {
     try {
       let response = await axios.get(
-        " http://localhost:5000/api/wishlistedgame/mywishlist",
+        "https://localhost:5001/api/wishlistedgame/mywishlist",
         {
           headers: {
             Authorization: "Bearer " + token,

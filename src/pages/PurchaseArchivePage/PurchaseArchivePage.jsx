@@ -27,6 +27,7 @@ const PurchaseArchivePage = ({}) => {
   useEffect(() => {
     fetchPurchaseArchive();
   }, []);
+
   const totalPurchaseCost = purchaseArchive.reduce(
     (acc, purchaseArchiveitem) => acc + purchaseArchiveitem.purchaseAmount,
     0
