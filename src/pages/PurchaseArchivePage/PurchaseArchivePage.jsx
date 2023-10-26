@@ -21,7 +21,7 @@ const PurchaseArchivePage = ({}) => {
       console.log(response);
       setPurchaseArchive(response.data);
     } catch (error) {
-      console.warn("Error with WishList Request");
+      console.warn("Error with PurchaseArchive Request");
     }
   };
   useEffect(() => {
@@ -33,3 +33,4 @@ const PurchaseArchivePage = ({}) => {
     </div>
   );
 };
+export default PurchaseArchivePage;

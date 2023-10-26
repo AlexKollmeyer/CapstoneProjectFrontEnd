@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import WishListPage from "./pages/WishListPage/WishListPage/WishListPage";
-import PurchaseArchivePage from "./components/PurchaseArchive/PurchaseArchive";
+import PurchaseArchivePage from "./pages/PurchaseArchivePage/PurchaseArchivePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -40,7 +40,7 @@ function App() {
           }
         />
         <Route
-          path="/purchasearchivepage"
+          path="/purchaseArchivePage"
           element={
             <PrivateRoute>
               <PurchaseArchivePage />
