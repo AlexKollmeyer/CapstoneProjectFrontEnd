@@ -6,6 +6,8 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import WishListPage from "./pages/WishListPage/WishListPage/WishListPage";
+import PurchaseArchivePage from "./components/PurchaseArchive/PurchaseArchive";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -13,7 +15,6 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import WishListPage from "./pages/WishListPage/WishListPage/WishListPage";
 
 function App() {
   return (
@@ -31,10 +32,18 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path="/favoritesPage"
+          path="/wishListPage"
           element={
             <PrivateRoute>
               <WishListPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/purchaseArchivePage"
+          element={
+            <PrivateRoute>
+              <PurchaseArchivePage />
             </PrivateRoute>
           }
         />

@@ -1,3 +1,4 @@
+import PurchaseArchive from "../../components/PurchaseArchive/PurchaseArchive";
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
@@ -9,11 +10,14 @@ const PurchaseArchivePage = ({}) => {
 
   const fetchPurchaseArchive = async () => {
     try {
-      let response = await axios.get(" http://localhost:5000/api/", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
+      let response = await axios.get(
+        " http://localhost:5000/api/purchaseArchive/mypurchasearchive",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
       console.log(response);
       setPurchaseArchive(response.data);
     } catch (error) {

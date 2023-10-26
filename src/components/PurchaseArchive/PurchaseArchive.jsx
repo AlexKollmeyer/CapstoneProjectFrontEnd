@@ -1,3 +1,4 @@
+import PurchaseArchiveItem from "../PurchaseArchiveItem/PurchaseArchiveItem";
 const PurchaseArchive = ({ purchaseArchive = [] }) => {
   const PurchaseArchiveItems = purchaseArchive.map((purchaseArchiveitem) => (
     <PurchaseArchiveItem
