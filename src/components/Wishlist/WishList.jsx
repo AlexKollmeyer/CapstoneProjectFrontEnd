@@ -5,7 +5,6 @@ const WishList = ({ wishList = [] }) => {
       key={wishlistitem.id}
       gameName={wishlistitem.gameName}
       thumbnail={wishlistitem.thumbnail}
-      cheapestCurrentDealId={wishlistitem.cheapestCurrentDeal}
     />
   ));
   return <div>{WishListItems}</div>;

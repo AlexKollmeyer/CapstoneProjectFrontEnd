@@ -7,20 +7,6 @@ import axios from "axios";
 const WishListPage = ({}) => {
   const [user, token] = useAuth();
   const [wishList, setWishList] = useState([]);
-  const [cheapSharkGame, setCheapSharkGame] = useState();
-  const fetchCheapSharkGame = async () => {
-    try {
-      let response = await axios.get(
-        `https://www.cheapshark.com/api/1.0/games?title=${gameName}`
-      );
-
-      console.log(response);
-      setCheapSharkGame(response.data[0]);
-    } catch (error) {}
-  };
-  useEffect(() => {
-    fetchCheapSharkGame();
-  }, []);
   const fetchWishList = async () => {
     try {
       let response = await axios.get(

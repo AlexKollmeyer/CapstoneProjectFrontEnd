@@ -7,7 +7,9 @@ import axios from "axios";
 const PurchaseArchivePage = ({}) => {
   const [user, token] = useAuth();
   const [purchaseArchive, setPurchaseArchive] = useState([]);
-
+  /*   const [viewPeriod, setviewPeriod] = useState(["AllTime"]);
+  const [totalPurchaseCost, setTotalPurchaseCost] = useState();
+ */
   const fetchPurchaseArchive = async () => {
     try {
       let response = await axios.get(
@@ -27,16 +29,29 @@ const PurchaseArchivePage = ({}) => {
   useEffect(() => {
     fetchPurchaseArchive();
   }, []);
+  /*   useEffect(() => {
+    implementViewPeriod();
+  }, []);
+  useEffect(() => {
+    calculateTotalPurchaseCost();
+  }, []);
 
-  const totalPurchaseCost = purchaseArchive.reduce(
-    (acc, purchaseArchiveitem) => acc + purchaseArchiveitem.purchaseAmount,
-    0
-  );
-
+  const implementViewPeriod = async () => {
+    purchaseArchive = purchaseArchive.filter((p) => p.purchaseDate);
+  };
+  const calculateTotalPurchaseCost = async () => {
+    setTotalPurchaseCost(
+      purchaseArchive.reduce(
+        (acc, purchaseArchiveitem) => acc + purchaseArchiveitem.purchaseAmount,
+        0
+      )
+    );
+  };
+ */
   return (
     <div>
       <div>
-        <h2>Total amount spent on (this site) ${totalPurchaseCost}</h2>
+        <h2>Total amount spent on (this site) ${/* totalPurchaseCost */}</h2>
       </div>
       <PurchaseArchive purchaseArchive={purchaseArchive} />
     </div>
