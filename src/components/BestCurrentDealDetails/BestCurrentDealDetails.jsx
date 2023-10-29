@@ -1,8 +1,9 @@
 const BestCurrentDealDetails = ({ bestCurrentDealDetails }) => {
   let savings =
+    100 -
     (bestCurrentDealDetails.gameInfo.salePrice /
       bestCurrentDealDetails.gameInfo.retailPrice) *
-    100;
+      100;
   return (
     <div>
       <h2>Best Current Deal</h2>
