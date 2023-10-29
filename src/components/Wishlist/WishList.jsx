@@ -1,14 +1,13 @@
 import WishListItem from "../WishListItem/WishListItem";
-const WishList = ({ wishList = [], wishListLoaded }) => {
+const WishList = ({ wishList = [], wishListPageLoaded }) => {
   const WishListItems = wishList.map((wishlistitem) => (
     <WishListItem
       key={wishlistitem.id}
       gameName={wishlistitem.gameName}
       thumbnail={wishlistitem.thumbnail}
-      wishListLoaded={wishListLoaded}
     />
   ));
-  return <div>{wishListLoaded ? WishListItems : <p>Loading</p>}</div>;
+  return <div>{wishListPageLoaded ? WishListItems : <p>Loading</p>}</div>;
 };
 
 export default WishList;

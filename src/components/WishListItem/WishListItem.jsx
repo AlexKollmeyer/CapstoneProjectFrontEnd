@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import BestCurrentDeal from "../BestCurrentDeal/BestCurrentDeal";
 const WishListItem = ({ gameName, thumbnail }) => {
   const [cheapSharkGame, setCheapSharkGame] = useState();
+  const [wishListItemLoaded, setWishListItemLoaded] = useState();
 
   const fetchCheapSharkGame = async () => {
     try {
@@ -19,13 +20,20 @@ const WishListItem = ({ gameName, thumbnail }) => {
 
   useEffect(() => {
     fetchCheapSharkGame();
+    setTimeout(() => {
+      setWishListItemLoaded(true);
+    }, 100);
   }, []);
 
   return (
     <div className="wishlistitem">
       <h2>{gameName}</h2>
       <img src={thumbnail} alt="Game Thumbnail" />
-      <BestCurrentDeal cheapSharkGame={cheapSharkGame} />
+      {wishListItemLoaded ? (
+        <BestCurrentDeal cheapSharkGame={cheapSharkGame} />
+      ) : (
+        <p>Loading</p>
+      )}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import axios from "axios";
 const WishListPage = ({}) => {
   const [user, token] = useAuth();
   const [wishList, setWishList] = useState([]);
-  const [wishListLoaded, setWishListLoaded] = useState(false);
+  const [wishListPageLoaded, setWishListPageLoaded] = useState(false);
   const fetchWishList = async () => {
     try {
       let response = await axios.get(
@@ -27,13 +27,13 @@ const WishListPage = ({}) => {
   useEffect(() => {
     fetchWishList();
     setTimeout(() => {
-      setWishListLoaded(true);
-    }, 1500);
+      setWishListPageLoaded(true);
+    }, 100);
   }, []);
 
   return (
     <div>
-      <WishList wishList={wishList} wishListLoaded={wishListLoaded} />
+      <WishList wishList={wishList} wishListPageLoaded={wishListPageLoaded} />
     </div>
   );
 };
