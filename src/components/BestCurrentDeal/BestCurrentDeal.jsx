@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import BestCurrentDealDetails from "../BestCurrentDealDetails/BestCurrentDealDetails";
 const BestCurrentDeal = ({ cheapSharkGame }) => {
   const [bestCurrentDealDetails, setBestCurrentDealDetails] = useState();
   const [bestCurrentDealLoaded, setBestCurrentDealLoaded] = useState(false);
@@ -7,7 +8,7 @@ const BestCurrentDeal = ({ cheapSharkGame }) => {
   const fetchBestCurrentDealDetails = async () => {
     try {
       let response = await axios.get(
-        `https://www.cheapshark.com/redirect?dealID=${cheapSharkGame.cheapestDealID}`
+        `https://www.cheapshark.com/api/1.0/deals?id=${cheapSharkGame.cheapestDealID}`
       );
       console.log(response);
       setBestCurrentDealDetails(response.data);
@@ -15,11 +16,22 @@ const BestCurrentDeal = ({ cheapSharkGame }) => {
       console.warn("Error with bestCurrentDealDetails");
     }
   };
-  useEffect;
+  useEffect(() => {
+    fetchBestCurrentDealDetails();
+    setTimeout(() => {
+      setBestCurrentDealLoaded(true);
+    }, 1000);
+  }, []);
 
   return (
     <div>
-      <p>{cheapSharkGame.cheapestDealID}</p>
+      {bestCurrentDealLoaded ? (
+        <BestCurrentDealDetails
+          bestCurrentDealDetails={bestCurrentDealDetails}
+        />
+      ) : (
+        <p>Loading</p>
+      )}
     </div>
   );
 };
