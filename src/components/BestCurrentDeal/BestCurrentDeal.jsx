@@ -27,6 +27,7 @@ const BestCurrentDeal = ({ cheapSharkGame }) => {
     <div>
       {bestCurrentDealLoaded ? (
         <BestCurrentDealDetails
+          bestCurrentDealId={cheapSharkGame.cheapestDealID}
           bestCurrentDealDetails={bestCurrentDealDetails}
         />
       ) : (
