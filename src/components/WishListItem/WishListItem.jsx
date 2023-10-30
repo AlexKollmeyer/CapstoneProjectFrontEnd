@@ -22,7 +22,7 @@ const WishListItem = ({ gameName, thumbnail }) => {
     fetchCheapSharkGame();
     setTimeout(() => {
       setWishListItemLoaded(true);
-    }, 100);
+    }, 500);
   }, []);
 
   return (

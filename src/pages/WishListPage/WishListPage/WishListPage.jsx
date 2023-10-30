@@ -28,7 +28,7 @@ const WishListPage = ({}) => {
     fetchWishList();
     setTimeout(() => {
       setWishListPageLoaded(true);
-    }, 100);
+    }, 500);
   }, []);
 
   return (

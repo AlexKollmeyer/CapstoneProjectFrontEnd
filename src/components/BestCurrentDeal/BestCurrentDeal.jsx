@@ -20,7 +20,7 @@ const BestCurrentDeal = ({ cheapSharkGame }) => {
     fetchBestCurrentDealDetails();
     setTimeout(() => {
       setBestCurrentDealLoaded(true);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
