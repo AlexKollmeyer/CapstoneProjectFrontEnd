@@ -5,7 +5,6 @@ const PurchaseArchiveItem = ({
   savings,
   ogPrice,
 }) => {
-  const savingsRounded = savings.toFixed(2);
   const purchaseDateTimeTrimmed = purchaseDate.substring(0, 10);
   return (
     <div>
@@ -15,7 +14,7 @@ const PurchaseArchiveItem = ({
       </div>
       <p>Sale Price: ${purchaseAmount}</p>
       <p>Original Price: ${ogPrice}</p>
-      <p>Savings: {savingsRounded}%</p>
+      <p>Savings: {savings}%</p>
     </div>
   );
 };
