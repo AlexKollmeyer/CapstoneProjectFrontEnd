@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
 import BestCurrentDeal from "../BestCurrentDeal/BestCurrentDeal";
-const WishListItem = ({ gameName, thumbnail }) => {
+const WishListItem = ({ wishListItemId, gameName, thumbnail }) => {
+  const [user, token] = useAuth();
   const [cheapSharkGame, setCheapSharkGame] = useState();
   const [wishListItemLoaded, setWishListItemLoaded] = useState();
+  const [buttonText, setButtonText] = useState("Remove from wishlist");
 
   const fetchCheapSharkGame = async () => {
     try {
@@ -17,7 +20,21 @@ const WishListItem = ({ gameName, thumbnail }) => {
       console.warn("Error with CheapSharkGame Request");
     }
   };
-
+  const handleClick = async () => {
+    console.log(wishListItemId);
+    try {
+      let response = await axios.delete(
+        `https://localhost:5001/api/wishlistedgame/${wishListItemId}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log(response.data);
+      setButtonText("Game removed from wishlist");
+    } catch (error) {}
+  };
   useEffect(() => {
     fetchCheapSharkGame();
     setTimeout(() => {
@@ -34,6 +51,7 @@ const WishListItem = ({ gameName, thumbnail }) => {
       ) : (
         <p>Loading</p>
       )}
+      <button onClick={handleClick}>{buttonText}</button>
     </div>
   );
 };

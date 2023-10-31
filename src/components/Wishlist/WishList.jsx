@@ -3,6 +3,7 @@ const WishList = ({ wishList = [], wishListPageLoaded }) => {
   const WishListItems = wishList.map((wishlistitem) => (
     <WishListItem
       key={wishlistitem.id}
+      wishListItemId={wishlistitem.id}
       gameName={wishlistitem.gameName}
       thumbnail={wishlistitem.thumbnail}
     />

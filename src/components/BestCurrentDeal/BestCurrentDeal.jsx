@@ -16,6 +16,7 @@ const BestCurrentDeal = ({ cheapSharkGame }) => {
       console.warn("Error with bestCurrentDealDetails");
     }
   };
+
   useEffect(() => {
     fetchBestCurrentDealDetails();
     setTimeout(() => {

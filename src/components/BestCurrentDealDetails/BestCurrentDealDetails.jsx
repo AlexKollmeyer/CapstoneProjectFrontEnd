@@ -51,16 +51,13 @@ const BestCurrentDealDetails = ({
       let currentDate = new Date();
       let currentDay = currentDate.getDate().toString();
       let currentMonth = (1 + currentDate.getMonth()).toString();
+      if (currentMonth < 10) {
+        currentMonth = "0" + currentMonth;
+      }
       let currentYear = currentDate.getFullYear().toString();
       let purchaseDate = `${currentYear}-${currentMonth}-${currentDay}`;
       console.log(purchaseDate);
       let postData = {
-        /*         purchaseGameTitle: `${bestCurrentDealDetails.gameInfo.name}`,
-        purchaseDate: `${currentYear}-${currentMonth}-${currentDay}`,
-        purchaseAmount: bestCurrentDealDetails.gameInfo.salePrice,
-        savings: savings,
-        originalPrice: bestCurrentDealDetails.gameInfo.retailPrice,
-        userId: `${user.Id}`, */
         purchasedGameTitle: `${bestCurrentDealDetails.gameInfo.name}`,
         purchaseDate: purchaseDate,
         purchaseAmount: bestCurrentDealDetails.gameInfo.salePrice,
@@ -95,7 +92,6 @@ const BestCurrentDealDetails = ({
           <p>Loading</p>
         )}
         <button onClick={handleClick}>Purchase</button>
-        <p></p>
       </div>
     </div>
   );
