@@ -1,46 +1,45 @@
 import { useEffect, useState } from "react";
 import PurchaseArchiveItem from "../PurchaseArchiveItem/PurchaseArchiveItem";
 const PurchaseArchive = ({ purchaseArchive = [] }) => {
-  const [totalPurchaseCost, setTotalPurchaseCost] = useState(purchaseArchive);
+  const [totalPurchaseCost, setTotalPurchaseCost] = useState(
+    purchaseArchive.reduce(
+      (acc, purchaseArchiveitem) => acc + purchaseArchiveitem.purchaseAmount,
+      0
+    )
+  );
   const [filteredPurchaseArchive, setfilteredPurchaseArchive] =
     useState(purchaseArchive);
 
   const filterWithViewPeriod = async (viewPeriod) => {
+    let filtered = [];
     if (viewPeriod === "allTime") {
-      setfilteredPurchaseArchive(purchaseArchive);
-      console.log(filteredPurchaseArchive);
+      filtered = purchaseArchive;
     } else if (viewPeriod === "lastMonth") {
       let lastMonth = new Date();
       console.log(lastMonth);
       lastMonth = lastMonth.setMonth(lastMonth.getMonth() - 1);
-      let filtered = purchaseArchive.filter(
+      filtered = purchaseArchive.filter(
         (item) => new Date(item.purchaseDate) >= lastMonth
       );
-      setfilteredPurchaseArchive(filtered);
-      console.log(filteredPurchaseArchive);
     } else if (viewPeriod === "lastYear") {
       let lastYear = new Date();
       lastYear = lastYear.setYear(lastYear.getFullYear() - 1);
       console.log(lastYear);
-      let filtered = purchaseArchive.filter(
+      filtered = purchaseArchive.filter(
         (item) => new Date(item.purchaseDate) >= lastYear
       );
-      setfilteredPurchaseArchive(filtered);
-      console.log(filteredPurchaseArchive);
     }
+    setfilteredPurchaseArchive(filtered);
   };
-  const calculateTotalPurchaseCost = async () => {
+
+  useEffect(() => {
     setTotalPurchaseCost(
       filteredPurchaseArchive.reduce(
         (acc, purchaseArchiveitem) => acc + purchaseArchiveitem.purchaseAmount,
         0
       )
     );
-  };
-
-  /*   useEffect(() => {
-    filterWithViewPeriod();
-  }, []); */
+  }, [filteredPurchaseArchive]);
   const PurchaseArchiveItems = filteredPurchaseArchive.map(
     (filteredPurchaseArchive) => (
       <PurchaseArchiveItem
@@ -66,11 +65,11 @@ const PurchaseArchive = ({ purchaseArchive = [] }) => {
           Purchases within the last month
         </button>
       </div>
-      {/*       <div>
+      <div>
         <h2>
           Total amount spent on (this site) ${totalPurchaseCost.toFixed(2)}
         </h2>
-      </div> */}
+      </div>
       <div>{PurchaseArchiveItems}</div>
     </div>
   );
