@@ -1,10 +1,10 @@
-import SearchPageResults from "../../components/SearchPageResults/SearchPageResults";
+import BrowsingPageResults from "../../components/BrowsingPageResults/BrowsingPageResults";
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
-const SearchPage = ({}) => {
+const BrowsingPage = ({}) => {
   return <div></div>;
 };
 
-export default SearchPage;
+export default BrowsingPage;

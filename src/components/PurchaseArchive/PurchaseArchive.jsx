@@ -66,9 +66,7 @@ const PurchaseArchive = ({ purchaseArchive = [] }) => {
         </button>
       </div>
       <div>
-        <h2>
-          Total amount spent on (this site) ${totalPurchaseCost.toFixed(2)}
-        </h2>
+        <h2>Total cost of purchases: ${totalPurchaseCost.toFixed(2)}</h2>
       </div>
       <div>{PurchaseArchiveItems}</div>
     </div>
