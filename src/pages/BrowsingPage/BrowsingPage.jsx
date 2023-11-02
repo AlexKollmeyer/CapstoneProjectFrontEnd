@@ -18,9 +18,6 @@ const BrowsingPage = ({}) => {
   };
   useEffect(() => {
     fetchBrowsingResults();
-    /*     setTimeout(() => {
-      setWishListPageLoaded(true);
-    }, 500); */
   }, []);
   return (
     <div>
