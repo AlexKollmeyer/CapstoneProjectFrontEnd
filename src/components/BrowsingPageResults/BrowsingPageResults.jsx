@@ -1,25 +1,29 @@
 import BrowsingPageResult from "../BrowsingPageResult/BrowsingPageResult";
 import { useEffect, useState } from "react";
 const BrowsingPageResults = ({ browsingPageResults = [] }) => {
+  const [steamRatingSliderVaule, setSteamRatingSliderVaule] = useState(0);
+  const [priceSliderVaule, setPriceSliderVaule] = useState(150);
   const [filteredBrowsingPageResults, setFilteredBrowsingPageResults] =
     useState(browsingPageResults);
-  const [sliderValue, setSliderValue] = useState(0);
-
-  const handleSliderChange = (event) => {
+  //SliderHandles
+  const handleSteamRatingSliderChange = (event) => {
     const value = parseInt(event.target.value, 10);
-    setSliderValue(value);
+    setSteamRatingSliderVaule(value);
   };
-
-  const filterBySteamRating = (input) => {
-    const filtered = browsingPageResults.filter(
-      (item) => item.steamRatingPercent >= input
-    );
-    setFilteredBrowsingPageResults(filtered);
+  const handlePriceSliderChange = (event) => {
+    const value = parseInt(event.target.value, 10);
+    setPriceSliderVaule(value);
   };
 
   useEffect(() => {
-    filterBySteamRating(sliderValue);
-  }, [sliderValue, browsingPageResults]); // Watch both sliderValue and browsingPageResults
+    const filteredData = browsingPageResults.filter((item) => {
+      return (
+        item.steamRatingPercent >= steamRatingSliderVaule &&
+        item.salePrice <= priceSliderVaule
+      );
+    });
+    setFilteredBrowsingPageResults(filteredData);
+  }, [steamRatingSliderVaule, priceSliderVaule, browsingPageResults]);
 
   const BrowsingPageResultTable = filteredBrowsingPageResults.map(
     (browsingPageResult) => (
@@ -40,13 +44,21 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
 
   return (
     <div>
-      <h3>Minimum Steam Rating: {sliderValue}</h3>
+      <h3>Minimum Steam Rating: {steamRatingSliderVaule}</h3>
       <input
         type="range"
         min="0"
         max="100"
-        value={sliderValue}
-        onChange={handleSliderChange}
+        value={steamRatingSliderVaule}
+        onChange={handleSteamRatingSliderChange}
+      />
+      <h3>Maximum Price: {priceSliderVaule}</h3>
+      <input
+        type="range"
+        min="0"
+        max="150"
+        value={priceSliderVaule}
+        onChange={handlePriceSliderChange}
       />
       <table>
         <thead>
