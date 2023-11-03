@@ -1,29 +1,50 @@
+import React, { useState, useEffect } from "react";
 import BrowsingPageResult from "../BrowsingPageResult/BrowsingPageResult";
-import { useEffect, useState } from "react";
+
 const BrowsingPageResults = ({ browsingPageResults = [] }) => {
   const [steamRatingSliderVaule, setSteamRatingSliderVaule] = useState(0);
   const [priceSliderVaule, setPriceSliderVaule] = useState(150);
   const [filteredBrowsingPageResults, setFilteredBrowsingPageResults] =
     useState(browsingPageResults);
-  //SliderHandles
+  const [isChecked, setIsChecked] = useState(false);
+
   const handleSteamRatingSliderChange = (event) => {
     const value = parseInt(event.target.value, 10);
     setSteamRatingSliderVaule(value);
   };
+
   const handlePriceSliderChange = (event) => {
     const value = parseInt(event.target.value, 10);
     setPriceSliderVaule(value);
   };
 
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
   useEffect(() => {
-    const filteredData = browsingPageResults.filter((item) => {
+    let filteredData = browsingPageResults.filter((item, index, self) => {
       return (
         item.steamRatingPercent >= steamRatingSliderVaule &&
-        item.salePrice <= priceSliderVaule
+        item.salePrice <= priceSliderVaule &&
+        (!isChecked || isFirstOccurrence(item.gameID, index, self))
       );
     });
     setFilteredBrowsingPageResults(filteredData);
-  }, [steamRatingSliderVaule, priceSliderVaule, browsingPageResults]);
+  }, [
+    steamRatingSliderVaule,
+    priceSliderVaule,
+    browsingPageResults,
+    isChecked,
+  ]);
+
+  const isFirstOccurrence = (gameID, currentIndex, array) => {
+    return (
+      array.findIndex(
+        (item, index) => item.gameID === gameID && index < currentIndex
+      ) === -1
+    );
+  };
 
   const BrowsingPageResultTable = filteredBrowsingPageResults.map(
     (browsingPageResult) => (
@@ -60,6 +81,14 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
         value={priceSliderVaule}
         onChange={handlePriceSliderChange}
       />
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
+        Hide Duplicates
+      </label>
       <table>
         <thead>
           <tr>
