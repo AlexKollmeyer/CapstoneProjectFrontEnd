@@ -42,7 +42,6 @@ const BestCurrentDealDetails = ({
       100;
   const handleClick = async () => {
     try {
-      console.log(user.id);
       let config = {
         headers: {
           Authorization: "Bearer " + token,
@@ -50,6 +49,9 @@ const BestCurrentDealDetails = ({
       };
       let currentDate = new Date();
       let currentDay = currentDate.getDate().toString();
+      if (currentDay < 10) {
+        currentDay = "0" + currentDay;
+      }
       let currentMonth = (1 + currentDate.getMonth()).toString();
       if (currentMonth < 10) {
         currentMonth = "0" + currentMonth;
@@ -61,11 +63,11 @@ const BestCurrentDealDetails = ({
         purchasedGameTitle: `${bestCurrentDealDetails.gameInfo.name}`,
         purchaseDate: purchaseDate,
         purchaseAmount: bestCurrentDealDetails.gameInfo.salePrice,
-        savings: savings.toFixed(),
+        savings: savings.toFixed(2),
         originalPrice: bestCurrentDealDetails.gameInfo.retailPrice,
         userId: `${user.id}`,
       };
-
+      console.log(postData);
       let response = await axios.post(
         "https://localhost:5001/api/purchasearchive",
         postData,
@@ -81,7 +83,7 @@ const BestCurrentDealDetails = ({
       <h2>Best Current Deal</h2>
       <p>Sale Price: ${bestCurrentDealDetails.gameInfo.salePrice}</p>
       <p>Retail Price: ${bestCurrentDealDetails.gameInfo.retailPrice}</p>
-      <p>Savings : {savings.toFixed(2)}%</p>
+      <p>Savings : {savings}%</p>
       <div>
         {bestCurrentDealDetailsLoaded ? (
           <StoreDetails

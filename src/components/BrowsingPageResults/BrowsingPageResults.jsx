@@ -59,6 +59,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
         dealRating={browsingPageResult.dealRating}
         steamRatingPercent={browsingPageResult.steamRatingPercent}
         steamRatingCount={browsingPageResult.steamRatingCount}
+        gameID={browsingPageResult.gameID}
       />
     )
   );
@@ -98,6 +99,8 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
             <th>Savings</th>
             <th>Deal Rating</th>
             <th>Steam Rating</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{BrowsingPageResultTable}</tbody>
