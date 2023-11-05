@@ -4,10 +4,7 @@ import react from "react";
 import useAuth from "../../hooks/useAuth";
 import StoreDetails from "../StoreDetails/StoreDetails";
 
-const BestCurrentDealDetails = ({
-  bestCurrentDealId,
-  bestCurrentDealDetails,
-}) => {
+const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails }) => {
   const [user, token] = useAuth();
   const [stores, setStores] = useState();
   const [bestCurrentDealDetailsLoaded, setbestCurrentDealDetailsLoaded] =
@@ -99,4 +96,4 @@ const BestCurrentDealDetails = ({
   );
 };
 
-export default BestCurrentDealDetails;
+export default BestCurrentDealStoreDetails;

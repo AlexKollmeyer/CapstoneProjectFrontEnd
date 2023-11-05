@@ -50,7 +50,7 @@ function App() {
           }
         />
         <Route
-          path="/searchPageResult"
+          path="/searchPage"
           element={
             <PrivateRoute>
               <SearchPage />
