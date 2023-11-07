@@ -8,6 +8,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import WishListPage from "./pages/WishListPage/WishListPage/WishListPage";
 import PurchaseArchivePage from "./pages/PurchaseArchivePage/PurchaseArchivePage";
+import SearchPage from "./pages/SearchPage/SearchPage";
+import BrowsingPage from "./pages/BrowsingPage/BrowsingPage";
+import AdminHomePage from "./pages/AdminHomePage/AdminHomePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -15,8 +18,6 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import SearchPage from "./pages/SearchPage/SearchPage";
-import BrowsingPage from "./pages/BrowsingPage/BrowsingPage";
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
           element={
             <PrivateRoute>
               <HomePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/adminHomePage"
+          element={
+            <PrivateRoute>
+              <AdminHomePage />
             </PrivateRoute>
           }
         />

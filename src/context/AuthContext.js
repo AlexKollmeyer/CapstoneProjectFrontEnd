@@ -59,7 +59,11 @@ export const AuthProvider = ({ children }) => {
         let loggedInUser = jwtDecode(response.data.access);
         setUser(setUserObject(loggedInUser));
         setIsServerError(false);
-        navigate("/");
+        if (response.data.role == "Admin") {
+          navigate("/adminHomePage");
+        } else {
+          navigate("/");
+        }
       } else {
         navigate("/register");
       }
