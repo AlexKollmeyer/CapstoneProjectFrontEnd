@@ -19,9 +19,6 @@ const AdminPurchasesPage = ({}) => {
           },
         }
       );
-      response.data.sort(
-        (a, b) => new Date(b.PurchaseDate) - new Date(a.PurchaseDate)
-      );
       console.log(response);
       setPurchaseArchive(response.data);
     } catch (error) {

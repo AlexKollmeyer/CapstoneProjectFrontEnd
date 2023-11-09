@@ -12,6 +12,7 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import BrowsingPage from "./pages/BrowsingPage/BrowsingPage";
 import AdminHomePage from "./pages/AdminHomePage/AdminHomePage";
 import AdminPurchasesPage from "./pages/AdminPurchasesPage/AdminPurchasesPage";
+import AdminCustomerListPage from "./pages/AdminCustomerListPage/AdminCustomerListPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -49,14 +50,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        {/*         <Route
+        <Route
           path="/adminCustomerListPage"
           element={
             <PrivateRoute>
               <AdminCustomerListPage />
             </PrivateRoute>
           }
-        /> */}
+        />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
