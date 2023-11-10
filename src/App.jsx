@@ -13,6 +13,8 @@ import BrowsingPage from "./pages/BrowsingPage/BrowsingPage";
 import AdminHomePage from "./pages/AdminHomePage/AdminHomePage";
 import AdminPurchasesPage from "./pages/AdminPurchasesPage/AdminPurchasesPage";
 import AdminCustomerListPage from "./pages/AdminCustomerListPage/AdminCustomerListPage";
+import CustomersWishListPage from "./pages/CustomersWishListPage/CustomersWishListPage";
+import CustomerPurchaseArchivePage from "./pages/CustomerPurchaseArchivePage/CustomerPurchaseArchivePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -26,6 +28,22 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route
+          path="/customersWishListPage/:customerId"
+          element={
+            <PrivateRoute>
+              <CustomersWishListPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/customersPurchaseArchivePage/:customerId"
+          element={
+            <PrivateRoute>
+              <CustomerPurchaseArchivePage />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/"
           element={
@@ -68,6 +86,7 @@ function App() {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/purchaseArchivePage"
           element={

@@ -1,6 +1,5 @@
+import { Link } from "react-router-dom";
 const CustomerItem = ({ id, userName, email }) => {
-  console.log(userName);
-  console.log(email);
   return (
     <div>
       <div>
@@ -8,8 +7,10 @@ const CustomerItem = ({ id, userName, email }) => {
         <h2>{email}</h2>
       </div>
       <div>
-        <button>Purchase Archive</button>
-        <button>WishList</button>
+        <Link to={`/customersWishListPage/${id}`}>Customer's WishList</Link>
+        <Link to={`/customersPurchaseArchivePage/${id}`}>
+          Customer's Purchase Archive
+        </Link>
       </div>
     </div>
   );
