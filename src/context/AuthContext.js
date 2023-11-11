@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
         if (response.data.role == "Admin") {
           navigate("/adminHomePage");
         } else {
-          navigate("/unauthorized");
+          navigate("/browsingPageResults");
         }
       } else {
         navigate("/register");

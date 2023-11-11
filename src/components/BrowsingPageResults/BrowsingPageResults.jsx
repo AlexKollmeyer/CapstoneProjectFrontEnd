@@ -74,7 +74,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
         value={steamRatingSliderVaule}
         onChange={handleSteamRatingSliderChange}
       />
-      <h3>Maximum Price: {priceSliderVaule}</h3>
+      <h3>Maximum Price: ${priceSliderVaule}</h3>
       <input
         type="range"
         min="0"

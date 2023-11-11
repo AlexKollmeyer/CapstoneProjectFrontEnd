@@ -11,10 +11,36 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/ASP.NET JWT Starter</b>
+          <Link
+            to="/browsingPageResults"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <b>PixelSaverHQ</b>
           </Link>
         </li>
+        <li>
+          <ul>
+            <li>
+              <button onClick={() => navigate("/searchPage")}>Search </button>
+            </li>
+            <li>
+              <button onClick={() => navigate("/browsingPageResults")}>
+                Browse
+              </button>
+            </li>
+            <li>
+              <button onClick={() => navigate("/wishListPage")}>
+                WishList
+              </button>
+            </li>
+            <li>
+              <button onClick={() => navigate("/purchaseArchivePage")}>
+                Purchase Archive
+              </button>
+            </li>
+          </ul>
+        </li>
+
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
