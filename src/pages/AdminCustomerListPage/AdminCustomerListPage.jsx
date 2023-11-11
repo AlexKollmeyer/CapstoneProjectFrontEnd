@@ -6,8 +6,11 @@ import Customers from "../../Customers/Customers";
 const AdminCustomerListPage = ({}) => {
   const [customers, setCustomers] = useState([]);
   const [customersLoaded, setCustomersLoaded] = useState(false);
-
   const [user, token] = useAuth();
+  useEffect(() => {
+    console.log("AdminCustomerListPage - User Object:", user);
+    console.log("AdminCustomerListPage - Token:", token);
+  }, [user, token]);
 
   const fetchCustomers = async () => {
     try {

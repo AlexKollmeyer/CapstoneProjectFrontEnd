@@ -15,6 +15,7 @@ function setUserObject(user) {
     userName: user.userName,
     id: user.id,
     email: user.email,
+    role: user.role,
   };
 }
 
@@ -22,8 +23,10 @@ export const AuthProvider = ({ children }) => {
   const BASE_URL = "https://localhost:5001/api/authentication";
   const userToken = JSON.parse(localStorage.getItem("token"));
   const decodedUser = userToken ? jwtDecode(userToken) : null;
+  console.log(decodedUser);
   const [token, setToken] = useState(userToken);
   const [user, setUser] = useState(setUserObject(decodedUser));
+
   const [isServerError, setIsServerError] = useState(false);
   const navigate = useNavigate();
 
@@ -52,17 +55,19 @@ export const AuthProvider = ({ children }) => {
   const loginUser = async (loginData) => {
     try {
       let response = await axios.post(`${BASE_URL}/login`, loginData);
-      console.log(response);
       if (response.status === 200) {
         localStorage.setItem("token", JSON.stringify(response.data.access));
         setToken(JSON.parse(localStorage.getItem("token")));
         let loggedInUser = jwtDecode(response.data.access);
-        setUser(setUserObject(loggedInUser));
+        setUser({
+          ...setUserObject(loggedInUser),
+          role: response.data.role,
+        });
         setIsServerError(false);
         if (response.data.role == "Admin") {
           navigate("/adminHomePage");
         } else {
-          navigate("/");
+          navigate("/unauthorized");
         }
       } else {
         navigate("/register");

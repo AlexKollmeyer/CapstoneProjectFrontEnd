@@ -15,6 +15,7 @@ import AdminPurchasesPage from "./pages/AdminPurchasesPage/AdminPurchasesPage";
 import AdminCustomerListPage from "./pages/AdminCustomerListPage/AdminCustomerListPage";
 import CustomersWishListPage from "./pages/CustomersWishListPage/CustomersWishListPage";
 import CustomerPurchaseArchivePage from "./pages/CustomerPurchaseArchivePage/CustomerPurchaseArchivePage";
+import UnauthorizedPage from "./pages/UnauthorizedPage/UnauthorizedPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -31,16 +32,17 @@ function App() {
         <Route
           path="/customersWishListPage/:customerId"
           element={
-            <PrivateRoute>
-              <CustomersWishListPage />
-            </PrivateRoute>
+            <PrivateRoute
+              roles={["Admin"]}
+              children={<CustomersWishListPage />}
+            />
           }
         />
         <Route
           path="/customersPurchaseArchivePage/:customerId"
           element={
             <PrivateRoute>
-              <CustomerPurchaseArchivePage />
+              <CustomerPurchaseArchivePage roles={["Admin"]} />
             </PrivateRoute>
           }
         />
@@ -55,7 +57,7 @@ function App() {
         <Route
           path="/adminHomePage"
           element={
-            <PrivateRoute>
+            <PrivateRoute roles={["Admin"]}>
               <AdminHomePage />
             </PrivateRoute>
           }
@@ -63,7 +65,7 @@ function App() {
         <Route
           path="/adminPurchasesPage"
           element={
-            <PrivateRoute>
+            <PrivateRoute roles={["Admin"]}>
               <AdminPurchasesPage />
             </PrivateRoute>
           }
@@ -71,13 +73,14 @@ function App() {
         <Route
           path="/adminCustomerListPage"
           element={
-            <PrivateRoute>
+            <PrivateRoute roles={["Admin"]}>
               <AdminCustomerListPage />
             </PrivateRoute>
           }
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route
           path="/wishListPage"
           element={
@@ -86,7 +89,6 @@ function App() {
             </PrivateRoute>
           }
         />
-
         <Route
           path="/purchaseArchivePage"
           element={
