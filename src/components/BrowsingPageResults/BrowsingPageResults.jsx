@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import BrowsingPageResult from "../BrowsingPageResult/BrowsingPageResult";
+import "./BrowsingPageResults.css";
 
 const BrowsingPageResults = ({ browsingPageResults = [] }) => {
-  const [steamRatingSliderVaule, setSteamRatingSliderVaule] = useState(0);
+  const [steamRatingSliderValue, setSteamRatingSliderVaule] = useState(0);
   const [priceSliderVaule, setPriceSliderVaule] = useState(150);
   const [filteredBrowsingPageResults, setFilteredBrowsingPageResults] =
     useState(browsingPageResults);
@@ -25,14 +26,14 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
   useEffect(() => {
     let filteredData = browsingPageResults.filter((item, index, self) => {
       return (
-        item.steamRatingPercent >= steamRatingSliderVaule &&
+        item.steamRatingPercent >= steamRatingSliderValue &&
         item.salePrice <= priceSliderVaule &&
         (!isChecked || isFirstOccurrence(item.gameID, index, self))
       );
     });
     setFilteredBrowsingPageResults(filteredData);
   }, [
-    steamRatingSliderVaule,
+    steamRatingSliderValue,
     priceSliderVaule,
     browsingPageResults,
     isChecked,
@@ -66,12 +67,12 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
 
   return (
     <div>
-      <h3>Minimum Steam Rating: {steamRatingSliderVaule}</h3>
+      <h3>Minimum Steam Rating: {steamRatingSliderValue}</h3>
       <input
         type="range"
         min="0"
         max="100"
-        value={steamRatingSliderVaule}
+        value={steamRatingSliderValue}
         onChange={handleSteamRatingSliderChange}
       />
       <h3>Maximum Price: ${priceSliderVaule}</h3>

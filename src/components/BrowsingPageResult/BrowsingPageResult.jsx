@@ -1,5 +1,6 @@
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import "./BrowsingPageResult.css";
 const BrowsingPageResult = ({
   title,
   thumbnail,
