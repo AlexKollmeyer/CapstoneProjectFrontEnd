@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const CustomersWishListPage = ({}) => {
+  const navigate = useNavigate();
   let { customerId } = useParams();
   const [user, token] = useAuth();
   const [wishList, setWishList] = useState([]);
@@ -35,6 +37,8 @@ const CustomersWishListPage = ({}) => {
 
   return (
     <div>
+      <h2>Return to Customer List</h2>
+      <button onClick={() => navigate("/adminCustomerListPage")}>Return</button>
       <WishList wishList={wishList} wishListPageLoaded={wishListPageLoaded} />
     </div>
   );

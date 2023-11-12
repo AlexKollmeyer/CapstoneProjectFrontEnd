@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }) => {
   const BASE_URL = "https://localhost:5001/api/authentication";
   const userToken = JSON.parse(localStorage.getItem("token"));
   const decodedUser = userToken ? jwtDecode(userToken) : null;
-  console.log(decodedUser);
   const [token, setToken] = useState(userToken);
   const [user, setUser] = useState(setUserObject(decodedUser));
 

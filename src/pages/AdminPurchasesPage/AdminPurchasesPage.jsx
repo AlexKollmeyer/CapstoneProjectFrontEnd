@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import PurchaseArchive from "../../components/PurchaseArchive/PurchaseArchive";
+import { useNavigate, Link } from "react-router-dom";
 const AdminPurchasesPage = ({}) => {
+  const navigate = useNavigate();
   const [user, token] = useAuth();
   const [purchaseArchivePageLoaded, setPurchaseArchivePageLoaded] =
     useState(false);
@@ -33,6 +35,8 @@ const AdminPurchasesPage = ({}) => {
   }, []);
   return (
     <div>
+      <h2>Return to Admin Home Page</h2>
+      <button onClick={() => navigate("/adminHomePage")}>Return</button>
       {purchaseArchivePageLoaded ? (
         <PurchaseArchive purchaseArchive={purchaseArchive} />
       ) : (

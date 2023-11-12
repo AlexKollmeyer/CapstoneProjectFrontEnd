@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import Customers from "../../Customers/Customers";
+import { useNavigate, Link } from "react-router-dom";
 const AdminCustomerListPage = ({}) => {
+  const navigate = useNavigate();
   const [customers, setCustomers] = useState([]);
   const [customersLoaded, setCustomersLoaded] = useState(false);
   const [user, token] = useAuth();
@@ -33,6 +35,8 @@ const AdminCustomerListPage = ({}) => {
   }, []);
   return (
     <div>
+      <h2>Return to Admin Home Page</h2>
+      <button onClick={() => navigate("/adminHomePage")}>Return</button>
       {customersLoaded ? <Customers customers={customers} /> : <p>Loading</p>}
     </div>
   );

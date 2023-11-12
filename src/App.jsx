@@ -33,7 +33,7 @@ function App() {
           path="/customersWishListPage/:customerId"
           element={
             <PrivateRoute
-              roles={["Admin"]}
+              /* roles={["Admin"]} */
               children={<CustomersWishListPage />}
             />
           }
@@ -42,7 +42,7 @@ function App() {
           path="/customersPurchaseArchivePage/:customerId"
           element={
             <PrivateRoute>
-              <CustomerPurchaseArchivePage roles={["Admin"]} />
+              <CustomerPurchaseArchivePage /* roles={["Admin"]} */ />
             </PrivateRoute>
           }
         />
@@ -57,7 +57,7 @@ function App() {
         <Route
           path="/adminHomePage"
           element={
-            <PrivateRoute roles={["Admin"]}>
+            <PrivateRoute /* roles={["Admin"]} */>
               <AdminHomePage />
             </PrivateRoute>
           }
@@ -65,7 +65,7 @@ function App() {
         <Route
           path="/adminPurchasesPage"
           element={
-            <PrivateRoute roles={["Admin"]}>
+            <PrivateRoute /* roles={["Admin"]} */>
               <AdminPurchasesPage />
             </PrivateRoute>
           }
@@ -73,7 +73,7 @@ function App() {
         <Route
           path="/adminCustomerListPage"
           element={
-            <PrivateRoute roles={["Admin"]}>
+            <PrivateRoute /* roles={["Admin"]} */>
               <AdminCustomerListPage />
             </PrivateRoute>
           }

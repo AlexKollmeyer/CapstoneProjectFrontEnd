@@ -9,9 +9,9 @@ const useAuth = () => {
   }
 
   const { user, token } = authContextValue;
-  const role = user ? user.role : null; // Assuming user has a role property
+  /*   const role = user ? user.role : null;  */
 
-  return [user, token, role];
+  return [user, token /* role */];
 };
 
 export default useAuth;
