@@ -5,6 +5,7 @@ const BrowsingPageResult = ({
   title,
   thumbnail,
   storeid,
+  stores,
   salePrice,
   normalPrice,
   savings,
@@ -15,7 +16,7 @@ const BrowsingPageResult = ({
 }) => {
   const [user, token] = useAuth();
   /*   const [isWishListed, setisWishListed] = useState(false); */
-
+  let storeName = stores[parseInt(storeid) - 1].storeName;
   let steamRating = "";
   if (steamRatingPercent != 0) {
     steamRating = `${steamRatingPercent}% out of ${steamRatingCount} steam reviews`;
@@ -95,7 +96,7 @@ const BrowsingPageResult = ({
         <h3>{title}</h3>
         <img src={thumbnail} alt="Game Thumbnail" />
       </td>
-      <td>{storeid}</td>
+      <td>{storeName}</td>
       <td>
         <h3>Sale Price: {salePrice}</h3>
         <h3>Original Price: {normalPrice}</h3>

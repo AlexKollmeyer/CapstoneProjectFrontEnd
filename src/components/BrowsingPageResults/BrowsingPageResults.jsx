@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import BrowsingPageResult from "../BrowsingPageResult/BrowsingPageResult";
 import "./BrowsingPageResults.css";
+import axios from "axios";
 
 const BrowsingPageResults = ({ browsingPageResults = [] }) => {
+  const [stores, setStores] = useState();
   const [steamRatingSliderValue, setSteamRatingSliderVaule] = useState(0);
   const [priceSliderVaule, setPriceSliderVaule] = useState(150);
   const [filteredBrowsingPageResults, setFilteredBrowsingPageResults] =
@@ -22,7 +24,20 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
-
+  useEffect(() => {
+    const fetchstores = async () => {
+      try {
+        let response = await axios.get(
+          "https://www.cheapshark.com/api/1.0/stores"
+        );
+        console.log(response);
+        setStores(response.data);
+      } catch (error) {
+        console.warn("Error with stores get request", error);
+      }
+    };
+    fetchstores();
+  }, []);
   useEffect(() => {
     let filteredData = browsingPageResults.filter((item, index, self) => {
       return (
@@ -54,6 +69,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
         title={browsingPageResult.title}
         thumbnail={browsingPageResult.thumb}
         storeid={browsingPageResult.storeID}
+        stores={stores}
         salePrice={browsingPageResult.salePrice}
         normalPrice={browsingPageResult.normalPrice}
         savings={browsingPageResult.savings}
