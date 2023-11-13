@@ -18,7 +18,7 @@ const BrowsingPageResult = ({
   /*   const [isWishListed, setisWishListed] = useState(false); */
   let storeName = stores[parseInt(storeid) - 1].storeName;
   let steamRating = "";
-  if (steamRatingPercent != 0) {
+  if (steamRatingPercent !== 0) {
     steamRating = `${steamRatingPercent}% out of ${steamRatingCount} steam reviews`;
   } else {
     steamRating = "N/A";
@@ -98,8 +98,8 @@ const BrowsingPageResult = ({
       </td>
       <td>{storeName}</td>
       <td>
-        <h3>Sale Price: {salePrice}</h3>
-        <h3>Original Price: {normalPrice}</h3>
+        <h3>Sale Price: ${salePrice}</h3>
+        <h3>Original Price: ${normalPrice}</h3>
       </td>
       <td>{savings.substring(0, 5)}%</td>
       <td>{dealRating}</td>

@@ -83,30 +83,33 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
 
   return (
     <div>
-      <h3>Minimum Steam Rating: {steamRatingSliderValue}</h3>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={steamRatingSliderValue}
-        onChange={handleSteamRatingSliderChange}
-      />
-      <h3>Maximum Price: ${priceSliderVaule}</h3>
-      <input
-        type="range"
-        min="0"
-        max="150"
-        value={priceSliderVaule}
-        onChange={handlePriceSliderChange}
-      />
-      <label>
+      <div className="filters">
+        <h3>Minimum Steam Rating: {steamRatingSliderValue}</h3>
         <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          type="range"
+          min="0"
+          max="100"
+          value={steamRatingSliderValue}
+          onChange={handleSteamRatingSliderChange}
         />
-        Hide Duplicates
-      </label>
+        <h3>Maximum Price: ${priceSliderVaule}</h3>
+        <input
+          type="range"
+          min="0"
+          max="150"
+          value={priceSliderVaule}
+          onChange={handlePriceSliderChange}
+        />
+        <label>
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+          />
+          Hide Duplicates
+        </label>
+      </div>
+
       <table>
         <thead>
           <tr>
