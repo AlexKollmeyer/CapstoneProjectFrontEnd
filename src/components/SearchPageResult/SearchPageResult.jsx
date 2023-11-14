@@ -2,7 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import BestCurrentDealSearch from "../BestCurrentDealSearch/BestCurrentDealSearch";
-const SearchPageResult = ({ gameId, cheapestDealId, gameName, thumbnail }) => {
+const SearchPageResult = ({
+  gameId,
+  cheapestDealId,
+  gameName,
+  thumbnail,
+  stores,
+}) => {
   const [user, token] = useAuth();
 
   const handleClickPostWishList = async () => {
@@ -35,7 +41,7 @@ const SearchPageResult = ({ gameId, cheapestDealId, gameName, thumbnail }) => {
       <h2>{gameName}</h2>
       <img src={thumbnail} alt="Game Thumbnail" />
       <button onClick={handleClickPostWishList}>Add to wishlist</button>
-      <BestCurrentDealSearch cheapestDealId={cheapestDealId} />
+      <BestCurrentDealSearch cheapestDealId={cheapestDealId} stores={stores} />
     </div>
   );
 };

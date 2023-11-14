@@ -84,30 +84,37 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
   return (
     <div>
       <div className="filters">
-        <h3>Minimum Steam Rating: {steamRatingSliderValue}</h3>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={steamRatingSliderValue}
-          onChange={handleSteamRatingSliderChange}
-        />
-        <h3>Maximum Price: ${priceSliderVaule}</h3>
-        <input
-          type="range"
-          min="0"
-          max="150"
-          value={priceSliderVaule}
-          onChange={handlePriceSliderChange}
-        />
-        <label>
+        <h2>Filters:</h2>
+        <div>
+          <h3>Minimum Steam Rating: {steamRatingSliderValue}</h3>
           <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={handleCheckboxChange}
+            type="range"
+            min="0"
+            max="100"
+            value={steamRatingSliderValue}
+            onChange={handleSteamRatingSliderChange}
           />
-          Hide Duplicates
-        </label>
+        </div>
+        <div>
+          <h3>Maximum Price: ${priceSliderVaule}</h3>
+          <input
+            type="range"
+            min="0"
+            max="150"
+            value={priceSliderVaule}
+            onChange={handlePriceSliderChange}
+          />
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            Hide Duplicates
+          </label>
+        </div>
       </div>
 
       <table>
@@ -123,7 +130,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
             <th></th>
           </tr>
         </thead>
-        <tbody>{BrowsingPageResultTable}</tbody>
+        <tbody className="results">{BrowsingPageResultTable}</tbody>
       </table>
     </div>
   );

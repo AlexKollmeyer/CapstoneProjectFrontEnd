@@ -2,41 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import react from "react";
 import useAuth from "../../hooks/useAuth";
-import StoreDetails from "../StoreDetails/StoreDetails";
 
-const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails }) => {
+const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails, stores }) => {
   const [user, token] = useAuth();
-  const [stores, setStores] = useState();
-  const [bestCurrentDealDetailsLoaded, setbestCurrentDealDetailsLoaded] =
-    useState();
-
-  const fetchStores = async () => {
-    try {
-      let response = await axios.get(
-        `https://www.cheapshark.com/api/1.0/stores`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
-      console.log(response);
-      setStores(response.data);
-    } catch (error) {
-      console.warn("Error with stores request");
-    }
-  };
-  useEffect(() => {
-    fetchStores();
-    setTimeout(() => {
-      setbestCurrentDealDetailsLoaded(true);
-    }, 500);
-  }, []);
+  let storeName =
+    stores[parseInt(bestCurrentDealDetails.gameInfo.storeID) - 1].storeName;
   let savings =
     100 -
     (bestCurrentDealDetails.gameInfo.salePrice /
       bestCurrentDealDetails.gameInfo.retailPrice) *
       100;
+  savings = savings.toFixed(2);
   const handleClick = async () => {
     try {
       let config = {
@@ -82,14 +58,7 @@ const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails }) => {
       <p>Retail Price: ${bestCurrentDealDetails.gameInfo.retailPrice}</p>
       <p>Savings : {savings}%</p>
       <div>
-        {bestCurrentDealDetailsLoaded ? (
-          <StoreDetails
-            stores={stores}
-            storeID={bestCurrentDealDetails.gameInfo.storeID}
-          />
-        ) : (
-          <p>Loading</p>
-        )}
+        <p>Store:{storeName}</p>
         <button onClick={handleClick}>Purchase</button>
       </div>
     </div>

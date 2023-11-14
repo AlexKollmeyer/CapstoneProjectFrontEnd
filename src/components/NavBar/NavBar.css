@@ -17,10 +17,11 @@ li {
 }
 
 .navBar button {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
+  background: lightseagreen;
+  border: 2px solid lightseagreen;
+  color: navy;
   padding: 0.4rem 0.5rem;
+  margin-right: 0.5rem; /* Adjust the margin as needed */
 }
 
 .navBar button:hover {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BestCurrentDealStoreDetails from "../BestCurrentDealStoreDetails/BestCurrentDealStoreDetails";
-const BestCurrentDeal = ({ cheapSharkGame }) => {
+const BestCurrentDeal = ({ cheapSharkGame, stores }) => {
   const [bestCurrentDealDetails, setBestCurrentDealDetails] = useState();
   const [bestCurrentDealLoaded, setBestCurrentDealLoaded] = useState(false);
 
@@ -29,6 +29,7 @@ const BestCurrentDeal = ({ cheapSharkGame }) => {
       {bestCurrentDealLoaded ? (
         <BestCurrentDealStoreDetails
           bestCurrentDealDetails={bestCurrentDealDetails}
+          stores={stores}
         />
       ) : (
         <p>Loading</p>

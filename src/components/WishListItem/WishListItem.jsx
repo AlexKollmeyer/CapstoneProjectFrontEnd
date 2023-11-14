@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import BestCurrentDeal from "../BestCurrentDeal/BestCurrentDeal";
-const WishListItem = ({ wishListItemId, gameName, thumbnail }) => {
+const WishListItem = ({ wishListItemId, gameName, thumbnail, stores }) => {
   const [user, token] = useAuth();
   const [cheapSharkGame, setCheapSharkGame] = useState();
   const [wishListItemLoaded, setWishListItemLoaded] = useState();
@@ -47,7 +47,7 @@ const WishListItem = ({ wishListItemId, gameName, thumbnail }) => {
       <h2>{gameName}</h2>
       <img src={thumbnail} alt="Game Thumbnail" />
       {wishListItemLoaded ? (
-        <BestCurrentDeal cheapSharkGame={cheapSharkGame} />
+        <BestCurrentDeal cheapSharkGame={cheapSharkGame} stores={stores} />
       ) : (
         <p>Loading</p>
       )}
