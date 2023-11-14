@@ -1,10 +1,10 @@
-div {
+.browsingPageResults div {
   max-width: 100%;
   margin: 0 auto;
   background-color: lightcyan;
 }
 
-table {
+.browsingPageResults table {
   background-color: lightblue;
   color: darkblue;
   width: 100%;
@@ -12,24 +12,24 @@ table {
   margin-top: 20px;
 }
 
-table th {
+.browsingPageResults table th {
   background-color: rgb(4, 55, 96);
   color: antiquewhite;
   padding: 10px;
   text-align: left;
   border: 1px solid #ddd;
 }
-tbody tr:nth-child(even) {
+.browsingPageResults tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-label {
+.browsingPageResults label {
   font-size: larger;
   display: flex;
   align-items: center;
   margin-top: 10px;
   margin-right: 5px;
 }
-label input[type="checkbox"] {
+.browsingPageResults label input[type="checkbox"] {
   transform: scale(1.5);
 }
 .filters {

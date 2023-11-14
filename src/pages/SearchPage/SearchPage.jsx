@@ -10,7 +10,7 @@ const SearchPage = ({}) => {
   const fetchSearchResults = async () => {
     try {
       let response = await axios.get(
-        `https://www.cheapshark.com/api/1.0/games?title=${searchInput}`
+        `https://www.cheapshark.com/api/1.0/games?title=${searchInput}&limit=40`
       );
       console.log(response);
       setSearchPageResults(response.data);

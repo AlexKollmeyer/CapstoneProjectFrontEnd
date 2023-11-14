@@ -82,7 +82,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
   );
 
   return (
-    <div>
+    <div className="browsingPageResults">
       <div className="filters">
         <h2>Filters:</h2>
         <div>

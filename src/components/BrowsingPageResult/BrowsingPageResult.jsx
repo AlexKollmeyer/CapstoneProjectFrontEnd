@@ -91,7 +91,7 @@ const BrowsingPageResult = ({
     }
   };
   return (
-    <tr>
+    <tr className="browsingPageResult">
       <td>
         <h3>{title}</h3>
         <img src={thumbnail} alt="Game Thumbnail" />
