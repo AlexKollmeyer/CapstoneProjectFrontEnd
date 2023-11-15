@@ -1,6 +1,7 @@
 import SearchPageResult from "../SearchPageResult/SearchPageResult";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./SearchPageResults.css";
 const SearchPageResults = ({ searchPageResults = [] }) => {
   const [stores, setStores] = useState();
   useEffect(() => {
@@ -27,7 +28,7 @@ const SearchPageResults = ({ searchPageResults = [] }) => {
       stores={stores}
     />
   ));
-  return <div>{searchResults}</div>;
+  return <div className="searchResults">{searchResults}</div>;
 };
 
 export default SearchPageResults;
