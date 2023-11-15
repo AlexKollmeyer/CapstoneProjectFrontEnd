@@ -2,6 +2,7 @@ import SearchPageResults from "../../components/SearchPageResults/SearchPageResu
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./SearchPage.css";
 
 const SearchPage = ({}) => {
   const [searchInput, setSearchInput] = useState("");
@@ -10,7 +11,7 @@ const SearchPage = ({}) => {
   const fetchSearchResults = async () => {
     try {
       let response = await axios.get(
-        `https://www.cheapshark.com/api/1.0/games?title=${searchInput}&limit=40`
+        `https://www.cheapshark.com/api/1.0/games?title=${searchInput}&limit=30`
       );
       console.log(response);
       setSearchPageResults(response.data);
@@ -26,8 +27,8 @@ const SearchPage = ({}) => {
     }
   };
   return (
-    <div>
-      <div>
+    <div className="searchPage">
+      <div className="input">
         <h1>Search For Deals</h1>
         <input
           type="text"

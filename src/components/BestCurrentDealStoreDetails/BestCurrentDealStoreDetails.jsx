@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import react from "react";
 import useAuth from "../../hooks/useAuth";
+import "./BestCurrentDealStoreDetails.css";
 
 const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails, stores }) => {
   const [user, token] = useAuth();
@@ -52,7 +53,7 @@ const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails, stores }) => {
     }
   };
   return (
-    <div>
+    <div className="bestCurrentDealDetails">
       <h2>Best Current Deal</h2>
       <p>Sale Price: ${bestCurrentDealDetails.gameInfo.salePrice}</p>
       <p>Retail Price: ${bestCurrentDealDetails.gameInfo.retailPrice}</p>

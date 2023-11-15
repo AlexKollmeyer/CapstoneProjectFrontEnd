@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import BestCurrentDealSearch from "../BestCurrentDealSearch/BestCurrentDealSearch";
+import "./SearchPageResult.css";
 const SearchPageResult = ({
   gameId,
   cheapestDealId,
@@ -37,7 +38,7 @@ const SearchPageResult = ({
     }
   };
   return (
-    <div>
+    <div className="searchPageResult">
       <h2>{gameName}</h2>
       <img src={thumbnail} alt="Game Thumbnail" />
       <button onClick={handleClickPostWishList}>Add to wishlist</button>

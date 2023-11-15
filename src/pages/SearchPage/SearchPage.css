@@ -1,7 +1,6 @@
-.searchResults {
+.input {
+  background-color: lightcyan;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
-  background-color: lightblue;
 }
