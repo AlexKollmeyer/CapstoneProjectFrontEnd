@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PurchaseArchiveItem from "../PurchaseArchiveItem/PurchaseArchiveItem";
+import "./PurchaseArchive.css";
 const PurchaseArchive = ({ purchaseArchive = [] }) => {
   const [totalPurchaseCost, setTotalPurchaseCost] = useState(
     purchaseArchive.reduce(
@@ -53,8 +54,8 @@ const PurchaseArchive = ({ purchaseArchive = [] }) => {
     )
   );
   return (
-    <div>
-      <div>
+    <div className="purchaseArchiveWrapper">
+      <div className="buttons">
         <button onClick={() => filterWithViewPeriod("allTime")}>
           All Purchases
         </button>
@@ -68,7 +69,7 @@ const PurchaseArchive = ({ purchaseArchive = [] }) => {
       <div>
         <h2>Total cost of purchases: ${totalPurchaseCost.toFixed(2)}</h2>
       </div>
-      <div>{PurchaseArchiveItems}</div>
+      <div className="purchaseArchive">{PurchaseArchiveItems}</div>
     </div>
   );
 };

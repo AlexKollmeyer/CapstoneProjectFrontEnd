@@ -1,0 +1,9 @@
+.purchaseArchiveItem {
+  box-sizing: border-box;
+  max-width: 600px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: antiquewhite;
+  border: 2px solid aliceblue;
+  border-radius: 8px;
+}

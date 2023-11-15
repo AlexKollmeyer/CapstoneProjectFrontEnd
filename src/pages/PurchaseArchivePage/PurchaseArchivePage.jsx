@@ -33,7 +33,7 @@ const PurchaseArchivePage = ({}) => {
     }, 500);
   }, []);
   return (
-    <div>
+    <div className="purchaseArchivePageWrapper">
       {purchaseArchivePageLoaded ? (
         <PurchaseArchive purchaseArchive={purchaseArchive} />
       ) : (

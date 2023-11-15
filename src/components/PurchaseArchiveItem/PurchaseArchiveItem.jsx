@@ -1,3 +1,4 @@
+import "./PurchaseArchiveItem.css";
 const PurchaseArchiveItem = ({
   purchasedGameTitle,
   purchaseDate,
@@ -7,7 +8,7 @@ const PurchaseArchiveItem = ({
 }) => {
   const purchaseDateTimeTrimmed = purchaseDate.substring(0, 10);
   return (
-    <div>
+    <div className="purchaseArchiveItem">
       <div>
         <h3>Date of Purchase:{purchaseDateTimeTrimmed}</h3>
         <h3>{purchasedGameTitle}</h3>
