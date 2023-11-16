@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import BestCurrentDeal from "../BestCurrentDeal/BestCurrentDeal";
+import "./WishListItem.css";
 const WishListItem = ({ wishListItemId, gameName, thumbnail, stores }) => {
   const [user, token] = useAuth();
   const [cheapSharkGame, setCheapSharkGame] = useState();
@@ -43,7 +44,7 @@ const WishListItem = ({ wishListItemId, gameName, thumbnail, stores }) => {
   }, []);
 
   return (
-    <div className="wishlistitem">
+    <div className="wishListItem">
       <h2>{gameName}</h2>
       <img src={thumbnail} alt="Game Thumbnail" />
       {wishListItemLoaded ? (

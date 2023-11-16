@@ -1,6 +1,7 @@
 import WishListItem from "../WishListItem/WishListItem";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./WishList.css";
 const WishList = ({ wishList = [], wishListPageLoaded }) => {
   const [stores, setStores] = useState();
   useEffect(() => {
@@ -26,7 +27,11 @@ const WishList = ({ wishList = [], wishListPageLoaded }) => {
       stores={stores}
     />
   ));
-  return <div>{wishListPageLoaded ? WishListItems : <p>Loading</p>}</div>;
+  return (
+    <div className="wishList">
+      {wishListPageLoaded ? WishListItems : <p>Loading</p>}
+    </div>
+  );
 };
 
 export default WishList;

@@ -1,6 +1,7 @@
-.bestCurrentDealDetails {
+.wishList {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 7.5px;
+  margin: 0;
+  background-color: lightblue;
 }

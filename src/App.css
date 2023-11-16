@@ -17,9 +17,11 @@ p {
 }
 
 button {
-  background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  background-color: lightseagreen;
+  color: navy;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;

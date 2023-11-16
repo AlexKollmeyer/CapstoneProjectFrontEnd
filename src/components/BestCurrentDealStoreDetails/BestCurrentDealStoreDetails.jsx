@@ -54,14 +54,12 @@ const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails, stores }) => {
   };
   return (
     <div className="bestCurrentDealDetails">
-      <h2>Best Current Deal</h2>
+      <h2>Best Current Deal:</h2>
       <p>Sale Price: ${bestCurrentDealDetails.gameInfo.salePrice}</p>
       <p>Retail Price: ${bestCurrentDealDetails.gameInfo.retailPrice}</p>
       <p>Savings : {savings}%</p>
-      <div>
-        <p>Store:{storeName}</p>
-        <button onClick={handleClick}>Purchase</button>
-      </div>
+      <p>Store:{storeName}</p>
+      <button onClick={handleClick}>Purchase</button>
     </div>
   );
 };
