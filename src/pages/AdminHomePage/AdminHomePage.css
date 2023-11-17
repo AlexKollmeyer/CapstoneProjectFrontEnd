@@ -1,0 +1,11 @@
+.adminHomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminHomePage buttons {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  height: 600px;
+}

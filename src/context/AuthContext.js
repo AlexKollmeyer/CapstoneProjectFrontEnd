@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
         });
         setIsServerError(false);
         if (response.data.role == "Admin") {
-          navigate("/adminHomePage");
+          navigate("/adminPurchasesPage");
         } else {
           navigate("/browsingPageResults");
         }

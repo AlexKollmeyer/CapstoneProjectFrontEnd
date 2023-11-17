@@ -35,8 +35,10 @@ const AdminCustomerListPage = ({}) => {
   }, []);
   return (
     <div>
-      <h2>Return to Admin Home Page</h2>
-      <button onClick={() => navigate("/adminHomePage")}>Return</button>
+      <h2>View All Purchases</h2>
+      <button onClick={() => navigate("/adminPurchasesPage")}>
+        {"      "}
+      </button>
       {customersLoaded ? <Customers customers={customers} /> : <p>Loading</p>}
     </div>
   );
