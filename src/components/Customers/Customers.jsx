@@ -1,4 +1,4 @@
-import CustomerItem from "../components/CustomerItem/CustomerItem";
+import CustomerItem from "../CustomerItem/CustomerItem";
 
 const Customers = ({ customers = [] }) => {
   const CustomerItems = customers.map((customer) => (
