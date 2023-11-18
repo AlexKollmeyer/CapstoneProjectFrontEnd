@@ -5,6 +5,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import { useNavigate, Link } from "react-router-dom";
+import "./CustomersWishListPage.css";
 
 const CustomersWishListPage = ({}) => {
   const navigate = useNavigate();
@@ -37,8 +38,13 @@ const CustomersWishListPage = ({}) => {
 
   return (
     <div>
-      <h2>Return to Customer List</h2>
-      <button onClick={() => navigate("/adminCustomerListPage")}>Return</button>
+      <div className="return">
+        <h2>Return to Customer List</h2>
+        <button onClick={() => navigate("/adminCustomerListPage")}>
+          Return
+        </button>
+      </div>
+
       <WishList wishList={wishList} wishListPageLoaded={wishListPageLoaded} />
     </div>
   );

@@ -1,5 +1,5 @@
 import CustomerItem from "../CustomerItem/CustomerItem";
-
+import "./Customers.css";
 const Customers = ({ customers = [] }) => {
   const CustomerItems = customers.map((customer) => (
     <CustomerItem
@@ -10,7 +10,7 @@ const Customers = ({ customers = [] }) => {
     />
   ));
 
-  return <div>{CustomerItems}</div>;
+  return <div className="customers">{CustomerItems}</div>;
 };
 
 export default Customers;

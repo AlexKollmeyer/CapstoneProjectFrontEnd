@@ -36,8 +36,9 @@ const AdminCustomerListPage = ({}) => {
         <h2>Return to Purchases</h2>
         <button onClick={() => navigate("/adminPurchasesPage")}>Return</button>
       </div>
-
-      {customersLoaded ? <Customers customers={customers} /> : <p>Loading</p>}
+      <div>
+        {customersLoaded ? <Customers customers={customers} /> : <p>Loading</p>}
+      </div>
     </div>
   );
 };
