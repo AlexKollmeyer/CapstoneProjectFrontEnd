@@ -1,6 +1,7 @@
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import "./BrowsingPageResult.css";
+import { useState } from "react";
 const BrowsingPageResult = ({
   title,
   thumbnail,
@@ -14,6 +15,7 @@ const BrowsingPageResult = ({
   steamRatingCount,
   gameID,
 }) => {
+  const [wishListbuttonText, setWishListButtonText] = useState("Wishlist");
   const [user, token] = useAuth();
   /*   const [isWishListed, setisWishListed] = useState(false); */
   let storeName = stores[parseInt(storeid) - 1].storeName;
@@ -44,6 +46,7 @@ const BrowsingPageResult = ({
         config
       );
       console.log(response.data);
+      setWishListButtonText("Game added to Wishlist");
     } catch (error) {
       console.warn("Error with wishlist post request", error);
     }
@@ -86,8 +89,10 @@ const BrowsingPageResult = ({
         config
       );
       console.log(response.data);
+      alert("Purchase Successful!");
     } catch (error) {
       console.warn("Error with purchaseArchvie Post request", error);
+      alert("Purchase Unsccessful");
     }
   };
   return (
@@ -105,7 +110,7 @@ const BrowsingPageResult = ({
       <td>{dealRating}</td>
       <td>{steamRating}</td>
       <td>
-        <button onClick={handleClickPostWishList}>Add to wishlist</button>
+        <button onClick={handleClickPostWishList}>{wishListbuttonText}</button>
       </td>
       <td>
         <button onClick={handleClickPostPurchaseArchive}> Purchase </button>

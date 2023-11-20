@@ -11,6 +11,7 @@ const SearchPageResult = ({
   stores,
 }) => {
   const [user, token] = useAuth();
+  const [wishListbuttonText, setWishListButtonText] = useState("Wishlist");
 
   const handleClickPostWishList = async () => {
     try {
@@ -33,6 +34,7 @@ const SearchPageResult = ({
         config
       );
       console.log(response.data);
+      setWishListButtonText("Game added to Wishlist");
     } catch (error) {
       console.warn("Error with wishlist post request", error);
     }
@@ -41,7 +43,7 @@ const SearchPageResult = ({
     <div className="searchPageResult">
       <h2>{gameName}</h2>
       <img src={thumbnail} alt="Game Thumbnail" />
-      <button onClick={handleClickPostWishList}>Add to wishlist</button>
+      <button onClick={handleClickPostWishList}>{wishListbuttonText}</button>
       <BestCurrentDealSearch cheapestDealId={cheapestDealId} stores={stores} />
     </div>
   );

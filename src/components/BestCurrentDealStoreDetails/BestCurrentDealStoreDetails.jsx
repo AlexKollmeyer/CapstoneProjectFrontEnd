@@ -37,7 +37,7 @@ const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails, stores }) => {
         purchasedGameTitle: `${bestCurrentDealDetails.gameInfo.name}`,
         purchaseDate: purchaseDate,
         purchaseAmount: bestCurrentDealDetails.gameInfo.salePrice,
-        savings: savings.toFixed(2),
+        savings: savings,
         originalPrice: bestCurrentDealDetails.gameInfo.retailPrice,
         userId: `${user.id}`,
       };
@@ -48,8 +48,10 @@ const BestCurrentDealStoreDetails = ({ bestCurrentDealDetails, stores }) => {
         config
       );
       console.log(response.data);
+      alert("Purchase Successful!");
     } catch (error) {
       console.warn("Error with purchaseArchvie Post request", error);
+      alert("Purchase Unsccessful");
     }
   };
   return (
