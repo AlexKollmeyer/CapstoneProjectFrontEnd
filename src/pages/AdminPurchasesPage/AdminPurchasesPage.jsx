@@ -38,7 +38,7 @@ const AdminPurchasesPage = ({}) => {
     <div>
       <div className="header">
         <h2>PixelSaverHQ Admin Pages</h2>
-        <p>
+        {/*         <p>
           Information about the admin pages Lorem ipsum dolor sit amet,
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua. Scelerisque felis imperdiet proin
@@ -67,7 +67,7 @@ const AdminPurchasesPage = ({}) => {
           Eu mi bibendum neque egestas congue. Viverra justo nec ultrices dui
           sapien. Est velit egestas dui id ornare arcu odio ut sem. Arcu dictum
           varius duis at consectetur lorem donec massa.
-        </p>
+        </p> */}
         <h2>View Customers</h2>
         <button onClick={() => navigate("/adminCustomerListPage")}>
           Customer List

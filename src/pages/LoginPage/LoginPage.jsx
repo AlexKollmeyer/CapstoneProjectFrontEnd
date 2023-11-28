@@ -20,10 +20,12 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" autoComplete="off" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
           <input
+            role="presentation"
+            autoComplete="false"
             type="text"
             name="userName"
             value={formData.userName}
