@@ -1,7 +1,7 @@
-import BrowsingPageResults from "../../components/BrowsingPageResults/BrowsingPageResults";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BrowsingPageResults from "../../components/BrowsingPageResults/BrowsingPageResults";
 const BrowsingPage = ({}) => {
   const [browsingPageResults, setBrowsingPageResults] = useState([]);
 

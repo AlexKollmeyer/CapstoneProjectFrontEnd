@@ -16,6 +16,7 @@ import AdminCustomerListPage from "./pages/AdminCustomerListPage/AdminCustomerLi
 import CustomersWishListPage from "./pages/CustomersWishListPage/CustomersWishListPage";
 import CustomerPurchaseArchivePage from "./pages/CustomerPurchaseArchivePage/CustomerPurchaseArchivePage";
 import UnauthorizedPage from "./pages/UnauthorizedPage/UnauthorizedPage";
+import StoresPage from "./pages/StoresPage/StoresPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -110,6 +111,14 @@ function App() {
           element={
             <PrivateRoute>
               <BrowsingPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/storesPage"
+          element={
+            <PrivateRoute>
+              <StoresPage />
             </PrivateRoute>
           }
         />

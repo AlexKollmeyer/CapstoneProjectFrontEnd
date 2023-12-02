@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import BrowsingPageResult from "../BrowsingPageResult/BrowsingPageResult";
 import "./BrowsingPageResults.css";
-import axios from "axios";
 
 const BrowsingPageResults = ({ browsingPageResults = [] }) => {
   const [stores, setStores] = useState();
@@ -25,7 +25,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
     setIsChecked(event.target.checked);
   };
   useEffect(() => {
-    const fetchstores = async () => {
+    const fetchStores = async () => {
       try {
         let response = await axios.get(
           "https://www.cheapshark.com/api/1.0/stores"
@@ -36,7 +36,7 @@ const BrowsingPageResults = ({ browsingPageResults = [] }) => {
         console.warn("Error with stores get request", error);
       }
     };
-    fetchstores();
+    fetchStores();
   }, []);
   useEffect(() => {
     let filteredData = browsingPageResults.filter((item, index, self) => {
