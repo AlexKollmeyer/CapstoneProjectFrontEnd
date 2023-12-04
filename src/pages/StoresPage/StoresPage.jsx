@@ -3,6 +3,7 @@ import axios from "axios";
 import Stores from "../../components/Stores/Stores";
 const StoresPage = ({}) => {
   const [stores, setStores] = useState([]);
+  const [storesPageLoaded, setStoresPageLoaded] = useState(false);
   const fetchstores = async () => {
     try {
       let response = await axios.get(
@@ -23,13 +24,16 @@ const StoresPage = ({}) => {
       } catch (error) {
         console.error("Error fetching or filtering stores:", error);
       }
+      setTimeout(() => {
+        setStoresPageLoaded(true);
+      }, 500);
     };
 
     fetchActiveStores();
   }, []);
   return (
     <div>
-      <Stores stores={stores}></Stores>
+      <Stores stores={stores} storesPageLoaded={storesPageLoaded}></Stores>
     </div>
   );
 };
