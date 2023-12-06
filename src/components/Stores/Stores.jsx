@@ -12,14 +12,14 @@ const Stores = ({ stores, storesPageLoaded }) => {
       console.warn("error with StoreDeals get request", error);
     }
   };
-  const StoreDeals = stores.map((store) => (
+  const Stores = stores.map((store) => (
     <Store
       key={store.storeID}
       storeId={store.storeID}
       fetchStoreDeals={fetchStoreDeals}
     />
   ));
-  return <div>{storesPageLoaded ? StoreDeals : <p>Loading</p>}</div>;
+  return <div>{storesPageLoaded ? Stores : <p>Loading</p>}</div>;
 };
 
 export default Stores;
