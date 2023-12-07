@@ -6,7 +6,7 @@ const Stores = ({ stores, storesPageLoaded }) => {
       let response = await axios.get(
         `https://www.cheapshark.com/api/1.0/deals?storeID=${storeId}&pageSize=10`
       );
-      console.log(response);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.warn("error with StoreDeals get request", error);
@@ -16,6 +16,7 @@ const Stores = ({ stores, storesPageLoaded }) => {
     <Store
       key={store.storeID}
       storeId={store.storeID}
+      storeName={store.storeName}
       fetchStoreDeals={fetchStoreDeals}
     />
   ));

@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import StoreDeals from "../StoreDeals/StoreDeals";
-const Store = ({ storeId, fetchStoreDeals }) => {
+const Store = ({ storeId, storeName, fetchStoreDeals }) => {
   const [storeDeals, setStoreDeals] = useState();
   const [storeDealsLoaded, setStoreDealsLoaded] = useState(false);
 
   useEffect(() => {
-    let response = fetchStoreDeals(storeId);
-    setStoreDeals(response.data);
-    console.log(storeDeals);
-    setTimeout(() => {
-      setStoreDealsLoaded(true);
-    }, 1000);
-  }, []);
+    const getStoreDeals = async () => {
+      try {
+        const response = await fetchStoreDeals(storeId);
+        setStoreDeals(response);
+        setStoreDealsLoaded(true);
+      } catch (error) {
+        console.error("Error fetching store deals:", error);
+      }
+    };
+
+    getStoreDeals();
+  }, [storeId, fetchStoreDeals]);
   return (
     <div>
+      <h1>{storeName}</h1>
       <table>
         <thead>
           <tr>
