@@ -24,7 +24,6 @@ const SearchPageResult = ({
         gameId: `${gameId}`,
         gameName: `${gameName}`,
         thumbnail: `${thumbnail}`,
-        cheapestCurrentDealId: "",
         userId: `${user.id}`,
       };
 

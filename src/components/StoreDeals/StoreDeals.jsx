@@ -13,7 +13,6 @@ const StoreDeals = ({ storeDeals }) => {
         gameId: `${deal.gameID}`,
         gameName: `${deal.title}`,
         thumbnail: `${deal.thumbnail}`,
-        cheapestCurrentDealId: "",
         userId: `${user.id}`,
       };
       let response = await axios.post(

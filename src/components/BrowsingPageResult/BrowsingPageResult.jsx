@@ -36,7 +36,6 @@ const BrowsingPageResult = ({
         gameId: `${gameID}`,
         gameName: `${title}`,
         thumbnail: `${thumbnail}`,
-        cheapestCurrentDealId: "",
         userId: `${user.id}`,
       };
 
